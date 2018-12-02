@@ -1,9 +1,7 @@
-@keyframes disappear {
-    0% {opacity:1;}
-    50% {opacity:1;}
-    100% {opacity:0;}
-}
 
+:root {
+    --main-bg-color: #D5E8F7;
+}
 @keyframes dimming {
     0% {background: rgba(0,0,0,0);}
     100% {background: rgba(21, 43, 85, .3);}
@@ -18,7 +16,7 @@
     100% {left:10px; top:100%;}
 }
 
-@keyframes testing {
+@keyframes spookytext {
     0% {color: white; opacity:0;}
     10% {color: #801515; opacity:.25;}
     15% {opacity:0;}
@@ -32,15 +30,79 @@
     100% {opacity:0;}
 }
 
+/*TITLE BIG LETTERS*/
+@keyframes titlepage {
+    0% {opacity:0; color:white; margin-top:10%; font-size:3em;}
+    15% {opacity:1; color:white;}
+    40% {opacity:1; color:white; margin-top:10%; font-size:3em;}
+    70% {opacity:1; color:#70889A;}
+    100% {opacity:1; color:black; margin-top:0%; font-size:1em;}
+}
+
+/*BODY*/
+@keyframes titlepagebg {
+    0% {background-color:#0A273D;}
+    40% {background-color:#0A273D;}
+    70% {background-color:#70889A;}
+    100% {background-color: var(--main-bg-color);}
+}
+
+/*CONTINUE BUTTON*/
+@keyframes titlepagenext {
+    0% {opacity:0;}
+    10% {opacity:0;}
+    40% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes disappear {
+    0% {opacity:0;}
+    3.75% {opacity:1;}
+    10% {opacity:1;}
+    17.5% {opacity:.5; color:white;}
+    25% {opacity:0; color:var(--main-bg-color);}
+    50% {opacity:0; color:var(--main-bg-color);}
+    100% {opacity:0;}
+}
+/*BODY BACKGROUND CHANGES*/
 .dim {
     animation-name: dimming;
     animation-duration:20s;
     background: rgba(21,43,85,.3);
 }
+.blammobody {
+    background-color:var(--main-bg-color);
+    animation-name: titlepagebg;
+    animation-duration:10s;
+}
+.main-bg {
+    background-color: var(--main-bg-color);
+}
+
+.blammo {
+    animation-name: titlepage;
+    animation-duration:10s;
+    font-size:1em;
+    margin-top: 0%;
+    opacity:1;
+    color: black;
+}
+.blammonext {
+    opacity:1;
+    animation-name: titlepagenext;
+    animation-duration:10s;
+}
+div#pageheader{
+    opacity:1;
+}
+#restart{
+    color: #144265 !important;
+}
 h1
 {
     font-family: "Anonymous Pro", "Arial Black", Gadget, sans-serif;
     text-align: center;
+    font-size:2em;
 }
 div.visuals
 {
@@ -59,7 +121,7 @@ div.badguy
     font-size:200%;
     line-height: 200%;
     color:#801515;
-    animation-name: testing;
+    animation-name:spookytext;
     animation-duration:5s;
     animation-iteration-count: infinite;
 

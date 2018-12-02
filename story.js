@@ -629,7 +629,7 @@ squiffy.story.start = 'Beginning';
 squiffy.story.id = 'e424eb7b6b';
 squiffy.story.sections = {
 	'Beginning': {
-		'text': "<p><div style=\"font-size:.7em; opacity:0; font-style:italic; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:10s;\">A text &quot;adventure&quot; by @kristinalustig for Ludum Dare 43.</div>\n<br /></p>\n<p><img src=\"images/burger.png\" style=\"height:100px; animation-name:floating; animation-duration:20s; animation-iteration-count: infinite; position:fixed;\"/></p>\n<p>It&#39;s a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. </p>\n<p>Again.</p>\n<p>{sequence:Zzz.:When&#39;s the last time you even made your bed?:You don&#39;t even have a pillow!:I&#39;m not very impressed with you right now.:Hello? Is anybody in there?:<a class=\"squiffy-link link-section\" data-section=\"waking up\" role=\"link\" tabindex=\"0\">Doesn&#39;t your back hurt?</a>}</p>",
+		'text': "<p><img src=\"images/burger.png\" style=\"height:100px; animation-name:floating; animation-duration:20s; animation-iteration-count: infinite; position:fixed;\"/></p>\n<p>It&#39;s a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. </p>\n<p>Again.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">DEV cut to end of intro</a></p>\n<p>{sequence:Zzz.:When&#39;s the last time you even made your bed?:You don&#39;t even have a pillow!:I&#39;m not very impressed with you right now.:Hello? Is anybody in there?:<a class=\"squiffy-link link-section\" data-section=\"waking up\" role=\"link\" tabindex=\"0\">Doesn&#39;t your back hurt?</a>}</p>",
 		'passages': {
 		},
 	},
@@ -663,17 +663,41 @@ squiffy.story.sections = {
 	},
 	'TV-intro': {
 		'clear': true,
-		'text': "<p>The TV buzzes loudly, and you look to see that static has filled the screen. </p>\n<p>Through the static, a voice wavers...</p>\n<div class=\"badguy\">Hi there, you.</div>\n\n<p><br /></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"&ldquo;What the hell?&rdquo;\" role=\"link\" tabindex=\"0\">&ldquo;What the hell?&rdquo;</a>\n<br /><br />\n<a class=\"squiffy-link link-passage\" data-passage=\"&ldquo;Why, hello there.&rdquo;\" role=\"link\" tabindex=\"0\">&ldquo;Why, hello there.&rdquo;</a></p>",
+		'text': "<p>The TV buzzes loudly, and you look to see that static has filled the screen. </p>\n<p>Through the static, a voice wavers...</p>\n<div class=\"badguy\">Hi there, you.</div>\n\n<p><br /></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"wtf\" role=\"link\" tabindex=\"0\">&quot;What the hell?&quot;</a>\n<br /><br />\n<a class=\"squiffy-link link-passage\" data-passage=\"hello\" role=\"link\" tabindex=\"0\">&quot;Why, hello there.&quot;</a></p>",
 		'passages': {
-			'&ldquo;What the hell?&rdquo;': {
+			'wtf': {
 				'text': "<div class=\"badguy\">Indeed, indeed.</div>\n\n<p><a class=\"squiffy-link link-passage\" data-passage=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
 			},
-			'&ldquo;Why, hello there.&rdquo;': {
+			'hello': {
 				'text': "<div class=\"badguy\">Cool as a cucumber.</div>\n\n<p><a class=\"squiffy-link link-passage\" data-passage=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
 			},
 			'...': {
-				'text': "<div class=\"badguy\">Yes, fair enough.</div>\n\n<p>The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.</p>",
+				'text': "<div class=\"badguy\">Yes, fair enough. I have much to say to you.</div>\n\n<p>The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.</p>\n<p>You start to find this wavery voice pretty annoying, frankly.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">You&#39;re right, I do. I&#39;m going to leave.</a>:</p>",
 			},
+		},
+	},
+	'leaveLR': {
+		'text': "<div id=\"narrator\">Yeahhh, that&#39;s not going to work, though.</div>\n\n<p>When you try to leave, you make it a couple of steps towards the door<a class=\"squiffy-link link-section\" data-section=\"titlescreen\" role=\"link\" tabindex=\"0\">,</a></p>",
+		'passages': {
+		},
+	},
+	'titlescreen': {
+		'clear': true,
+		'text': "<div style=\"font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;\">A text &quot;adventure&quot; by @kristinalustig for Ludum Dare 43.</div>\n<br />\n\n<div class=\"blammonext\"><a class=\"squiffy-link link-section\" data-section=\"Continue\" role=\"link\" tabindex=\"0\">Continue</a></div>",
+		'js': function() {
+			document.getElementById("pageheader").className="blammo";
+			document.body.className="blammobody";
+		},
+		'passages': {
+		},
+	},
+	'Continue': {
+		'clear': true,
+		'text': "",
+		'js': function() {
+			document.body.className="main-bg";
+		},
+		'passages': {
 		},
 	},
 }

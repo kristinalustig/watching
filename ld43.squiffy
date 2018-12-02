@@ -1,14 +1,14 @@
 @title Come To Me 
 
 [[Beginning]]:
-<div style="font-size:.7em; opacity:0; font-style:italic; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:10s;">A text "adventure" by @kristinalustig for Ludum Dare 43.</div>
-<br />
 
 <img src="images/burger.png" style="height:100px; animation-name:floating; animation-duration:20s; animation-iteration-count: infinite; position:fixed;"/>
 
 It's a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. 
 
 Again.
+
+[[DEV cut to end of intro]](leaveLR)
 
 {sequence:Zzz.:When's the last time you even made your bed?:You don't even have a pillow!:I'm not very impressed with you right now.:Hello? Is anybody in there?:[[Doesn't your back hurt?]](waking up)}
 
@@ -66,18 +66,18 @@ Through the static, a voice wavers...
 
 <br />
 
-[&ldquo;What the hell?&rdquo;]
+["What the hell?"](wtf)
 <br /><br />
-[&ldquo;Why, hello there.&rdquo;]
+["Why, hello there."](hello)
 
 
-[&ldquo;What the hell?&rdquo;]:
+[wtf]:
 
 <div class="badguy">Indeed, indeed.</div>
 
 [...]
 
-[&ldquo;Why, hello there.&rdquo;]:
+[hello]:
 
 <div class="badguy">Cool as a cucumber.</div>
 
@@ -85,9 +85,35 @@ Through the static, a voice wavers...
 
 [...]:
 
-<div class="badguy">Yes, fair enough.</div>
+<div class="badguy">Yes, fair enough. I have much to say to you.</div>
 
 The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.
+
+You start to find this wavery voice pretty annoying, frankly.
+
+[[You're right, I do. I'm going to leave.]](leaveLR):
+
+[[leaveLR]]:
+
+<div id="narrator">Yeahhh, that's not going to work, though.</div>
+
+When you try to leave, you make it a couple of steps towards the door[[,]](titlescreen)
+
+[[titlescreen]]:
+	document.getElementById("pageheader").className="blammo";
+	document.body.className="blammobody";
+
+@clear
+
+<div style="font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;">A text "adventure" by @kristinalustig for Ludum Dare 43.</div>
+<br />
+
+<div class="blammonext">[[Begin]]</div>
+
+[[Begin]]:
+	document.body.className="main-bg";
+
+@clear
 
 
 
