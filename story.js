@@ -672,7 +672,7 @@ squiffy.story.sections = {
 				'text': "<div class=\"badguy\">Cool as a cucumber.</div>\n\n<p><a class=\"squiffy-link link-passage\" data-passage=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
 			},
 			'...': {
-				'text': "<div class=\"badguy\">Yes, fair enough. I have much to say to you.</div>\n\n<p>The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.</p>\n<p>You start to find this wavery voice pretty annoying, frankly.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">You&#39;re right, I do. I&#39;m going to leave.</a>:</p>",
+				'text': "<div class=\"badguy\">Yes, fair enough. I have much to say to you.</div>\n\n<p>The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.</p>\n<p>You start to find this wavery voice pretty annoying, frankly.</p>\n<p>...and also, mildly terrifying?</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">You&#39;re right, I do. I&#39;m going to leave.</a>:</p>",
 			},
 		},
 	},
@@ -683,7 +683,7 @@ squiffy.story.sections = {
 	},
 	'titlescreen': {
 		'clear': true,
-		'text': "<div style=\"font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;\">A text &quot;adventure&quot; by @kristinalustig for Ludum Dare 43.</div>\n<br />\n\n<div class=\"blammonext\"><a class=\"squiffy-link link-section\" data-section=\"Continue\" role=\"link\" tabindex=\"0\">Continue</a></div>",
+		'text': "<div style=\"font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;\">A text &quot;adventure&quot; by @kristinalustig for Ludum Dare 43.</div>\n<br />\n\n<div class=\"blammonext\"><a class=\"squiffy-link link-section\" data-section=\"Begin\" role=\"link\" tabindex=\"0\">Begin</a></div>",
 		'js': function() {
 			document.getElementById("pageheader").className="blammo";
 			document.body.className="blammobody";
@@ -691,11 +691,15 @@ squiffy.story.sections = {
 		'passages': {
 		},
 	},
-	'Continue': {
+	'Begin': {
 		'clear': true,
-		'text': "",
+		'text': "<p>You wake </p>",
 		'js': function() {
 			document.body.className="main-bg";
+			cheery = new Audio();
+			cheery.src = "audioCheery.mp3";
+			cheery.load();
+			cheery.play();
 		},
 		'passages': {
 		},
