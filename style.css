@@ -1,0 +1,111 @@
+@keyframes disappear {
+    0% {opacity:1;}
+    50% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes dimming {
+    0% {background: rgba(0,0,0,0);}
+    100% {background: rgba(21, 43, 85, .3);}
+}
+
+@keyframes floating {
+    0% {left:10px; top:-50px;}
+    20% {left:50px; top:20%;}
+    40% {left:-20px; top:40%;}
+    60% {left:40px; top:60%;}
+    80% {left:0px; top:80%;}
+    100% {left:10px; top:100%;}
+}
+
+@keyframes testing {
+    0% {color: white; opacity:0;}
+    10% {color: #801515; opacity:.25;}
+    15% {opacity:0;}
+    40% {color: #801515; opacity:.75;}
+    65% {opacity:0;}
+    70% {color: #801515; opacity:.25;}
+    72% {opacity:0;}
+    76% {color: #801515; opacity:.75%;}
+    82% {opacity:0;}
+    84% {color: #801515; opacity:1;}
+    100% {opacity:0;}
+}
+
+.dim {
+    animation-name: dimming;
+    animation-duration:20s;
+    background: rgba(21,43,85,.3);
+}
+h1
+{
+    font-family: "Anonymous Pro", "Arial Black", Gadget, sans-serif;
+    text-align: center;
+}
+div.visuals
+{
+    height:200px;
+    width:auto;
+}
+div.narrator
+{
+    font-style:italic;
+    color:#567714;
+    font-size:.7em;
+}
+div.badguy
+{
+    font-family: "Bungee", "Arial Black", Gadget, sans-serif;
+    font-size:200%;
+    line-height: 200%;
+    color:#801515;
+    animation-name: testing;
+    animation-duration:5s;
+    animation-iteration-count: infinite;
+
+}
+a.squiffy-link
+{
+    text-decoration: none;
+    color: Blue;
+    cursor: pointer;
+    font-weight:bold;
+}
+a.squiffy-link.disabled
+{
+    text-decoration: inherit;
+    color: inherit !important;
+    cursor: inherit;
+}
+a.squiffy-header-link
+{
+    text-decoration: underline;
+    color: Blue;
+    cursor: pointer;
+}
+div#squiffy-container
+{
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Anonymous Pro", "Courier New", Courier, monospace;
+    margin-bottom: 24px;
+
+}
+div#squiffy-header
+{
+    font-size: 1em;
+    text-align: right;
+}
+div#squiffy
+{
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 16px; margin-bottom: 16px;
+}

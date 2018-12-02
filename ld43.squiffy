@@ -1,0 +1,98 @@
+@title Come To Me 
+
+[[Beginning]]:
+<div style="font-size:.7em; opacity:0; font-style:italic; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:10s;">A text "adventure" by @kristinalustig for Ludum Dare 43.</div>
+<br />
+
+<img src="images/burger.png" style="height:100px; animation-name:floating; animation-duration:20s; animation-iteration-count: infinite; position:fixed;"/>
+
+It's a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. 
+
+Again.
+
+{sequence:Zzz.:When's the last time you even made your bed?:You don't even have a pillow!:I'm not very impressed with you right now.:Hello? Is anybody in there?:[[Doesn't your back hurt?]](waking up)}
+
+[[waking up]]:
+	document.body.className = 'dim';
+
+Right, well, your back is killing you when you wake up. You open your eyes again and when you glance at the clock, you see that it's around 3AM. 
+
+The glow of the TV has painted the room in blues and greys. It's like it has sucked all of the warmth out of the world.
+
+[[Get off the couch]]
+ <br /><br />
+[[Shut your eyes again]]
+
+[[Get off the couch]]:
+
+You slowly stand up, groaning as the kinks in your back creak their way out.
+
+You start to walk towards the kitchen to get some water. 
+
+<div class="narrator">(of course, you didn't say you wanted to get some water, but you're probably thirsty)</div>
+<br />
+[[I could use some water.]]
+
+[[I could use some water.]]:
+
+But [[before]](TV-intro) you get too far...
+
+[[Shut your eyes again]]:
+
+You can't really be bothered with things like "getting up" and "leaving the couch," huh? You start to shut your eyes again.
+
+[[Zzz.]]
+
+[[Zzz.]]:
+
+Wow, seriously?
+
+Okay, fine, you settle back in on your lumpy couch for some more *truly restful* sleep.
+<br />
+
+<div class="narrator">(hey, fourth-wall-breaking narrative voices get to be sarcastic if we want to be)</div>
+<br />
+
+[[And then you hear something.]](TV-intro)
+
+[[TV-intro]]:
+@clear
+
+The TV buzzes loudly, and you look to see that static has filled the screen. 
+
+Through the static, a voice wavers...
+
+<div class="badguy">Hi there, you.</div>
+
+<br />
+
+[&ldquo;What the hell?&rdquo;]
+<br /><br />
+[&ldquo;Why, hello there.&rdquo;]
+
+
+[&ldquo;What the hell?&rdquo;]:
+
+<div class="badguy">Indeed, indeed.</div>
+
+[...]
+
+[&ldquo;Why, hello there.&rdquo;]:
+
+<div class="badguy">Cool as a cucumber.</div>
+
+[...]
+
+[...]:
+
+<div class="badguy">Yes, fair enough.</div>
+
+The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.
+
+
+
+
+
+
+
+

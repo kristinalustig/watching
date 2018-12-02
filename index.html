@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<!--
+
+Created with Squiffy 5.1.2
+
+
+https://github.com/textadventures/squiffy
+
+-->
+	<head>
+		<title>Come To Me</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400, 700|Bungee" rel="stylesheet">
+
+		<script src="jquery.min.js"></script>
+		<script src="story.js" charset="UTF-8"></script>
+		
+		<script>
+			jQuery(function($){
+				$('#squiffy').squiffy();
+				var restart = function () {
+					$('#squiffy').squiffy('restart');
+				};
+				$('#restart').click(restart);
+				$('#restart').keypress(function (e) {
+					if (e.which !== 13) return;
+					restart();
+				});
+			});
+		</script>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
+		<div id="pageheader">
+			<h1>Come to Me</h1>
+		</div>
+		<div id="visuals">
+			<!--<img src="#"/>-->
+		</div>
+		<div id="squiffy-container">
+			<div id="squiffy">
+			</div>
+			<div id="squiffy-header">
+				<a class="squiffy-header-link" id="restart">Start Over</a>
+			</div>
+		</div>
+	</body>
+</html>
