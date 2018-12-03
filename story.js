@@ -629,7 +629,17 @@ squiffy.story.start = 'Beginning';
 squiffy.story.id = 'e424eb7b6b';
 squiffy.story.sections = {
 	'Beginning': {
-		'text': "<p><img src=\"images/burger.png\" style=\"height:100px; animation-name:floating; animation-duration:20s; animation-iteration-count: infinite; position:fixed;\"/></p>\n<p>It&#39;s a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. </p>\n<p>Again.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">DEV cut to end of intro</a></p>\n<p>{sequence:Zzz.:When&#39;s the last time you even made your bed?:You don&#39;t even have a pillow!:I&#39;m not very impressed with you right now.:Hello? Is anybody in there?:<a class=\"squiffy-link link-section\" data-section=\"waking up\" role=\"link\" tabindex=\"0\">Doesn&#39;t your back hurt?</a>}</p>",
+		'text': "<p><img src=\"images/coverIntro.png\" id=\"introImage\" /></p>\n<div id=\"introText\">Turn on sound, and <a class=\"squiffy-link link-section\" data-section=\"begin.\" role=\"link\" tabindex=\"0\">begin.</a></div>",
+		'js': function() {
+			static = new Audio();
+			document.body.className="introClass";
+		},
+		'passages': {
+		},
+	},
+	'begin.': {
+		'clear': true,
+		'text': "<p><img src=\"images/snow.png\" class=\"floatingsnow\" style=\"width:10%; animation-delay: 1s;\"/>\n<img src=\"images/snow.png\" class=\"floatingsnow\" style=\"width:10%; animation-delay: 4s;\"/>\n<img src=\"images/snow.png\" class=\"floatingsnow\" style=\"width:15%; animation-delay: 8s;\"/>\n<img src=\"images/snow.png\" class=\"floatingsnow\" style=\"width:12%; animation-delay: 10s;\"/></p>\n<p>It&#39;s a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. </p>\n<p>Again.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">DEV cut to end of intro</a></p>\n<p>{sequence:Zzz.:When&#39;s the last time you even made your bed?:You don&#39;t even have a pillow!:I&#39;m not very impressed with you right now.:Hello? Is anybody in there?:<a class=\"squiffy-link link-section\" data-section=\"waking up\" role=\"link\" tabindex=\"0\">Doesn&#39;t your back hurt?</a>}</p>",
 		'passages': {
 		},
 	},
@@ -637,6 +647,10 @@ squiffy.story.sections = {
 		'text': "<p>Right, well, your back is killing you when you wake up. You open your eyes again and when you glance at the clock, you see that it&#39;s around 3AM. </p>\n<p>The glow of the TV has painted the room in blues and greys. It&#39;s like it has sucked all of the warmth out of the world.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"Get off the couch\" role=\"link\" tabindex=\"0\">Get off the couch</a>\n <br /><br />\n<a class=\"squiffy-link link-section\" data-section=\"Shut your eyes again\" role=\"link\" tabindex=\"0\">Shut your eyes again</a></p>",
 		'js': function() {
 			document.body.className = 'dim';
+			creepy = new Audio();
+			creepy.src = "creepy.mp3";
+			creepy.load();
+			creepy.play();
 		},
 		'passages': {
 		},
@@ -647,7 +661,7 @@ squiffy.story.sections = {
 		},
 	},
 	'I could use some water.': {
-		'text': "<p>But <a class=\"squiffy-link link-section\" data-section=\"TV-intro\" role=\"link\" tabindex=\"0\">before</a> you get too far...</p>",
+		'text': "<p>But <a class=\"squiffy-link link-section\" data-section=\"TVintro\" role=\"link\" tabindex=\"0\">before</a> you get too far...</p>",
 		'passages': {
 		},
 	},
@@ -657,50 +671,131 @@ squiffy.story.sections = {
 		},
 	},
 	'Zzz.': {
-		'text': "<p>Wow, seriously?</p>\n<p>Okay, fine, you settle back in on your lumpy couch for some more <em>truly restful</em> sleep.\n<br /></p>\n<p><div class=\"narrator\">(hey, fourth-wall-breaking narrative voices get to be sarcastic if we want to be)</div>\n<br /></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"TV-intro\" role=\"link\" tabindex=\"0\">And then you hear something.</a></p>",
+		'text': "<p>Wow, seriously?</p>\n<p>Okay, fine, you settle back in on your lumpy couch for some more <em>truly restful</em> sleep.\n<br /></p>\n<p><div class=\"narrator\">(hey, fourth-wall-breaking narrative voices get to be sarcastic if we want to be)</div>\n<br /></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"TVintro\" role=\"link\" tabindex=\"0\">And then you hear something.</a></p>",
 		'passages': {
 		},
 	},
-	'TV-intro': {
+	'TVintro': {
 		'clear': true,
-		'text': "<p>The TV buzzes loudly, and you look to see that static has filled the screen. </p>\n<p>Through the static, a voice wavers...</p>\n<div class=\"badguy\">Hi there, you.</div>\n\n<p><br /></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"wtf\" role=\"link\" tabindex=\"0\">&quot;What the hell?&quot;</a>\n<br /><br />\n<a class=\"squiffy-link link-passage\" data-passage=\"hello\" role=\"link\" tabindex=\"0\">&quot;Why, hello there.&quot;</a></p>",
+		'text': "<p>The TV buzzes loudly, and you look to see that static has filled the screen. </p>\n<p>Through the static, a voice wavers...</p>\n<div class=\"badguy\">Hi there, you.</div>\n\n<p><br /></p>\n<p><a class=\"squiffy-link link-section\" data-section=\"wtf\" role=\"link\" tabindex=\"0\">&quot;What the hell?&quot;</a>\n<br /><br />\n<a class=\"squiffy-link link-section\" data-section=\"hello\" role=\"link\" tabindex=\"0\">&quot;Why, hello there.&quot;</a></p>",
+		'js': function() {
+			creepy.pause();
+			static = new Audio();
+			staticExists = 1;
+			static.src = "static.wav";
+			static.load();
+			static.play();
+			static.loop = true;
+		},
 		'passages': {
-			'wtf': {
-				'text': "<div class=\"badguy\">Indeed, indeed.</div>\n\n<p><a class=\"squiffy-link link-passage\" data-passage=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
-			},
-			'hello': {
-				'text': "<div class=\"badguy\">Cool as a cucumber.</div>\n\n<p><a class=\"squiffy-link link-passage\" data-passage=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
-			},
-			'...': {
-				'text': "<div class=\"badguy\">Yes, fair enough. I have much to say to you.</div>\n\n<p>The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.</p>\n<p>You start to find this wavery voice pretty annoying, frankly.</p>\n<p>...and also, mildly terrifying?</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">You&#39;re right, I do. I&#39;m going to leave.</a>:</p>",
-			},
+		},
+	},
+	'wtf': {
+		'text': "<div class=\"badguy\">Oh yes, that&#39;s true.</div>\n\n<p><a class=\"squiffy-link link-section\" data-section=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
+		'passages': {
+		},
+	},
+	'hello': {
+		'text': "<div class=\"badguy\">Playing it cool as a cucumber, huh?</div>\n\n<p><a class=\"squiffy-link link-section\" data-section=\"...\" role=\"link\" tabindex=\"0\">...</a></p>",
+		'passages': {
+		},
+	},
+	'...': {
+		'text': "<div class=\"badguy\">Yes, fair enough. I have much to say to you.</div>\n\n<p>The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.</p>\n<p>You start to find this wavery voice pretty annoying, frankly.</p>\n<p>...and also, mildly terrifying?</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"leaveLR\" role=\"link\" tabindex=\"0\">You&#39;re right, I do. I&#39;m going to leave.</a></p>",
+		'passages': {
 		},
 	},
 	'leaveLR': {
-		'text': "<div id=\"narrator\">Yeahhh, that&#39;s not going to work, though.</div>\n\n<p>When you try to leave, you make it a couple of steps towards the door<a class=\"squiffy-link link-section\" data-section=\"titlescreen\" role=\"link\" tabindex=\"0\">,</a></p>",
+		'text': "<div id=\"narrator\">Yeahhh, that&#39;s not going to work, though.</div>\n\n<p>When you try to leave, you make it a couple of steps towards the <a class=\"squiffy-link link-section\" data-section=\"titlescreen\" role=\"link\" tabindex=\"0\">door...</a></p>",
 		'passages': {
 		},
 	},
 	'titlescreen': {
 		'clear': true,
-		'text': "<div style=\"font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;\">A text &quot;adventure&quot; by @kristinalustig for Ludum Dare 43.</div>\n<br />\n\n<div class=\"blammonext\"><a class=\"squiffy-link link-section\" data-section=\"Begin\" role=\"link\" tabindex=\"0\">Begin</a></div>",
+		'text': "<div style=\"font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;\">A text &quot;adventure&quot; by @kristinalustig for Ludum Dare 43.</div>\n<br />\n\n<div id=\"blammonext\"><a class=\"squiffy-link link-section\" data-section=\"Actually Begin\" role=\"link\" tabindex=\"0\">Actually Begin</a></div>",
 		'js': function() {
+			static.pause();
 			document.getElementById("pageheader").className="blammo";
 			document.body.className="blammobody";
 		},
 		'passages': {
 		},
 	},
-	'Begin': {
-		'clear': true,
-		'text': "<p>You wake </p>",
+	'Actually Begin': {
+		'text': "<p>You wake up nice and snuggly in your bed. When you stand up, you feel well-rested, too!</p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"thatsgreat\" role=\"link\" tabindex=\"0\">That&#39;s... great?</a>\n<br/><br/>\n<a class=\"squiffy-link link-passage\" data-passage=\"thatsgreat\" role=\"link\" tabindex=\"0\">Gee, I really do love mornings!</a></p>",
 		'js': function() {
 			document.body.className="main-bg";
 			cheery = new Audio();
 			cheery.src = "audioCheery.mp3";
 			cheery.load();
 			cheery.play();
+			cheery.loop = true;
 		},
+		'passages': {
+			'thatsgreat': {
+				'text': "<p>You feel pretty good about life right now. </p>\n<p>For a second, your mind catches on a bit of a strange memory... a moment, perhaps.</p>\n<p>And just as quickly, the thought flutters away. The winter sun streams through your bedroom window.</p>\n<p>What shall you do today?!</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"work\" role=\"link\" tabindex=\"0\">I&#39;ll probably just go to work.</a>\n<br />\n<br />\n<a class=\"squiffy-link link-section\" data-section=\"bs\" role=\"link\" tabindex=\"0\">I&#39;ll probably just go perform a quick ritualistic blood sacrifice.</a></p>",
+			},
+		},
+	},
+	'work': {
+		'text': "<p>What an idea!</p>\n<p>And will you be cycling or walking there?</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"headin\" role=\"link\" tabindex=\"0\">Cycling!</a>\n<br/><br/>\n<a class=\"squiffy-link link-section\" data-section=\"headin\" role=\"link\" tabindex=\"0\">Walking!</a></p>",
+		'passages': {
+		},
+	},
+	'bs': {
+		'text': "<p>Uh... hm. I&#39;m going to pretend you didn&#39;t suggest that.</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"work\" role=\"link\" tabindex=\"0\">I&#39;ll probably just go to work.</a></p>",
+		'passages': {
+		},
+	},
+	'headin': {
+		'text': "<p>Excellent. You head on into work and get there on time.</p>\n<div class=\"narrator\">Go you!</div>\n\n<p><a class=\"squiffy-link link-section\" data-section=\"Do some work.\" role=\"link\" tabindex=\"0\">Do some work.</a></p>",
+		'passages': {
+		},
+	},
+	'Do some work.': {
+		'text': "<p>beep boop.</p>\n<p>beep beep boop.</p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"more1\" role=\"link\" tabindex=\"0\">Do some more work.</a></p>",
+		'passages': {
+			'more1': {
+				'text': "<p><em>printer noise</em></p>\n<p><em>printer noise</em></p>\n<p><em>stapler noise</em></p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"more2\" role=\"link\" tabindex=\"0\">Do some more work.</a></p>",
+			},
+			'more2': {
+				'text': "<p>Uh...</p>\n<p><em>coffee maker noise</em></p>\n<p><em>low hum of office noise</em></p>\n<div class=\"narrator\">God, this is boring.</div>\n\n<p><a class=\"squiffy-link link-passage\" data-passage=\"more3\" role=\"link\" tabindex=\"0\">do some more work</a></p>",
+			},
+			'more3': {
+				'text': "<p>Alright, it&#39;s time to head home.</p>\n<p>Looks like it&#39;s raining outside. Which would you rather do?</p>\n<p><a class=\"squiffy-link link-section\" data-section=\"Walk\" role=\"link\" tabindex=\"0\">Walk</a>\n<br /><br />\n<a class=\"squiffy-link link-section\" data-section=\"Take the bus\" role=\"link\" tabindex=\"0\">Take the bus</a></p>",
+			},
+		},
+	},
+	'Walk': {
+		'text': "<p>Odd choice, but alright. </p>\n<p>You bid farewell to your coworkers and head out.</p>\n<p>As you&#39;re walking down the street, you see a <a class=\"squiffy-link link-section\" data-section=\"firstsight\" role=\"link\" tabindex=\"0\">man</a> unlocking his front door.</p>",
+		'passages': {
+		},
+	},
+	'Take the bus': {
+		'text': "<p>Makes sense.</p>\n<p>You bid farewell to your coworkers and head out.</p>\n<p>You get on the bus uneventfully, and get off at your stop.</p>\n<p>When you step off the bus, you see a <a class=\"squiffy-link link-section\" data-section=\"firstsight\" role=\"link\" tabindex=\"0\">man</a> unlocking his front door.</p>",
+		'passages': {
+		},
+	},
+	'firstsight': {
+		'clear': true,
+		'text': "<p>You&#39;re confused, at first. Then you start...</p>\n<p><a class=\"squiffy-link link-passage\" data-passage=\"f1\" role=\"link\" tabindex=\"0\">...to</a></p>",
+		'js': function() {
+			cheery.pause();
+		},
+		'passages': {
+			'f1': {
+				'text': "<p><a class=\"squiffy-link link-passage\" data-passage=\"f2\" role=\"link\" tabindex=\"0\">...feel</a></p>",
+			},
+			'f2': {
+				'text': "<div id=\"fainting-dizzy\">...a bit dizzy.</div>\n<br /><br />\n\n<div id=\"fainting-next\"><a class=\"squiffy-link link-section\" data-section=\"Continue\" role=\"link\" tabindex=\"0\">Continue</a></div>",
+				'js': function() {
+					document.body.className="fainting-bg";
+				},
+			},
+		},
+	},
+	'Continue': {
+		'text': "<p>Blah</p>",
 		'passages': {
 		},
 	},

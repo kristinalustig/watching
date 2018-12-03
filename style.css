@@ -2,19 +2,31 @@
 :root {
     --main-bg-color: #D5E8F7;
 }
+
+/*ONE-OFF ANIMATIONS*/
 @keyframes dimming {
     0% {background: rgba(0,0,0,0);}
     100% {background: rgba(21, 43, 85, .3);}
 }
 
+.floatingsnow {
+    height:auto; 
+    animation-name:floating; 
+    animation-duration:15s; 
+    animation-iteration-count:infinite; 
+    position:fixed;
+    opacity: 0;
+}
+
 @keyframes floating {
-    0% {left:10px; top:-50px;}
+    0% {opacity: 1; left:10px; top:-50px;}
     20% {left:50px; top:20%;}
     40% {left:-20px; top:40%;}
     60% {left:40px; top:60%;}
     80% {left:0px; top:80%;}
     100% {left:10px; top:100%;}
 }
+
 
 @keyframes spookytext {
     0% {color: white; opacity:0;}
@@ -29,71 +41,152 @@
     84% {color: #801515; opacity:1;}
     100% {opacity:0;}
 }
+.dim {
+    animation-name: dimming;
+    animation-duration:20s;
+    background: rgba(21,43,85,.3);
+}
 
-/*TITLE BIG LETTERS*/
+
+/*introductory page animations*/
+.introClass{
+    opacity:1;
+    background-color: white;
+    animation-name: introScreen;
+    animation-duration: 5s;
+}
+@keyframes introScreen {
+    0% {background-color:black;}
+    50% {background-color:black;}
+    100% {background-color:white;}
+}
+#introImage{
+    width:100%;
+    height:auto;
+    opacity:1;
+    animation-name: introScreen-img;
+    animation-duration: 5s;
+}
+@keyframes introScreen-img {
+    0% {opacity:0;}
+    30% {opacity:0;}
+    50% {opacity:1;}
+    100% {opacity:1;}
+}
+#introText{
+    opacity:1;
+    animation-name: introScreen-txt;
+    animation-duration:5s;
+}
+@keyframes introScreen-txt {
+    0% {opacity:0;}
+    30% {opacity:0;}
+    50% {opacity:1;}
+    100% {opacity:1;}
+}
+
+
+
+
+/*TITLE PAGE ANIMATIONS AND CLASSES*/
 @keyframes titlepage {
     0% {opacity:0; color:white; margin-top:10%; font-size:3em;}
-    15% {opacity:1; color:white;}
+    20% {opacity:0; color:white; margin-top:10%; font-size:3em;}
+    30% {opacity:1; color:white;}
     40% {opacity:1; color:white; margin-top:10%; font-size:3em;}
     70% {opacity:1; color:#70889A;}
     100% {opacity:1; color:black; margin-top:0%; font-size:1em;}
 }
-
-/*BODY*/
 @keyframes titlepagebg {
     0% {background-color:#0A273D;}
     40% {background-color:#0A273D;}
     70% {background-color:#70889A;}
     100% {background-color: var(--main-bg-color);}
 }
-
-/*CONTINUE BUTTON*/
 @keyframes titlepagenext {
     0% {opacity:0;}
     10% {opacity:0;}
     40% {opacity:0;}
     100% {opacity:1;}
 }
-
 @keyframes disappear {
     0% {opacity:0;}
-    3.75% {opacity:1;}
+    5% {opacity:0;}
+    7.5% {opacity:1;}
     10% {opacity:1;}
     17.5% {opacity:.5; color:white;}
     25% {opacity:0; color:var(--main-bg-color);}
     50% {opacity:0; color:var(--main-bg-color);}
     100% {opacity:0;}
 }
-/*BODY BACKGROUND CHANGES*/
-.dim {
-    animation-name: dimming;
-    animation-duration:20s;
-    background: rgba(21,43,85,.3);
-}
 .blammobody {
     background-color:var(--main-bg-color);
     animation-name: titlepagebg;
     animation-duration:10s;
 }
-.main-bg {
-    background-color: var(--main-bg-color);
-}
-
 .blammo {
     animation-name: titlepage;
     animation-duration:10s;
     font-size:1em;
     margin-top: 0%;
-    opacity:1;
+    opacity:1 !important;
     color: black;
 }
-.blammonext {
+#blammonext {
     opacity:1;
     animation-name: titlepagenext;
     animation-duration:10s;
 }
-div#pageheader{
+
+.main-bg {
+    background-color: var(--main-bg-color);
+}
+
+
+
+
+/*FAINTING ANIMATIONS AND CLASSES*/
+@keyframes fainted-bg{
+    0% {background-color: var(--main-bg-color);}
+    60% {background-color: var(--main-bg-color);}
+    100% {background-color: black;}
+}
+.fainting-bg {
+    background-color: black;
+    animation-name:fainted-bg;
+    animation-duration:5s;
+}
+@keyframes fainted-dizzy{
+    0% {color:black;}
+    60% {color:black;}
+    100% {color: white;}
+}
+#fainting-dizzy {
+    color:white;
+    animation-name: fainted-dizzy;
+    animation-duration:5s;
+}
+@keyframes fainted-next{
+    0% {opacity:0;}
+    60% {opacity:0;}
+    80% {opacity:0;}
+    100% {opacity:1;}
+}
+#fainting-next {
     opacity:1;
+    color:white;
+    animation-name: fainted-next;
+    animation-duration:5s;
+}
+
+
+
+
+
+
+
+div#pageheader{
+    opacity:0;
 }
 #restart{
     color: #144265 !important;
@@ -103,6 +196,7 @@ h1
     font-family: "Anonymous Pro", "Arial Black", Gadget, sans-serif;
     text-align: center;
     font-size:2em;
+    opacity:1;
 }
 div.visuals
 {
@@ -114,12 +208,15 @@ div.narrator
     font-style:italic;
     color:#567714;
     font-size:.7em;
+    max-width: 70%;
+    margin-left:15%;
+    text-align:center;
 }
 div.badguy
 {
     font-family: "Bungee", "Arial Black", Gadget, sans-serif;
-    font-size:200%;
-    line-height: 200%;
+    font-size:1.5em;
+    line-height: 1.5em;
     color:#801515;
     animation-name:spookytext;
     animation-duration:5s;
@@ -161,7 +258,7 @@ div#squiffy-header
 }
 div#squiffy
 {
-    font-size: 1.5em;
+    font-size: 1em;
     line-height: 1.5em;
 }
 hr {

@@ -1,14 +1,31 @@
 @title Come To Me 
 
 [[Beginning]]:
+	static = new Audio();
+	document.body.className="introClass";
 
-<img src="images/burger.png" style="height:100px; animation-name:floating; animation-duration:20s; animation-iteration-count: infinite; position:fixed;"/>
+<img src="images/coverIntro.png" id="introImage" />
+
+<div id="introText">Turn on sound, and [[begin.]]</div>
+
+[[DEV cut to end of intro]](leaveLR)
+
+[[begin.]]:
+	creepy = new Audio();
+	creepy.src = "creepy.mp3";
+	creepy.load();
+	creepy.play();
+
+@clear
+
+<img src="images/snow.png" class="floatingsnow" style="width:10%; animation-delay: 1s;"/>
+<img src="images/snow.png" class="floatingsnow" style="width:10%; animation-delay: 5s;"/>
+<img src="images/snow.png" class="floatingsnow" style="width:15%; animation-delay: 8s;"/>
+<img src="images/snow.png" class="floatingsnow" style="width:12%; animation-delay: 12s;"/>
 
 It's a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. 
 
 Again.
-
-[[DEV cut to end of intro]](leaveLR)
 
 {sequence:Zzz.:When's the last time you even made your bed?:You don't even have a pillow!:I'm not very impressed with you right now.:Hello? Is anybody in there?:[[Doesn't your back hurt?]](waking up)}
 
@@ -35,7 +52,7 @@ You start to walk towards the kitchen to get some water.
 
 [[I could use some water.]]:
 
-But [[before]](TV-intro) you get too far...
+But [[before]](TVintro) you get too far...
 
 [[Shut your eyes again]]:
 
@@ -53,39 +70,47 @@ Okay, fine, you settle back in on your lumpy couch for some more *truly restful*
 <div class="narrator">(hey, fourth-wall-breaking narrative voices get to be sarcastic if we want to be)</div>
 <br />
 
-[[And then you hear something.]](TV-intro)
+[[And then you hear something.]](TVintro)
 
-[[TV-intro]]:
+[[TVintro]]:
+	creepy.pause();
+	static = new Audio();
+	staticExists = 1;
+	static.src = "static.wav";
+	static.load();
+	static.play();
+	static.loop = true;
 @clear
 
 The TV buzzes loudly, and you look to see that static has filled the screen. 
 
 Through the static, a voice wavers...
 
-<div class="badguy">Hi there, you.</div>
+<div class="badguy">Hello in there.</div>
 
 <br />
 
-["What the hell?"](wtf)
+[["What in the hell?"]](wtf)
 <br /><br />
-["Why, hello there."](hello)
+[["Who are you, and what are you doing in my..."]](hello)
 
 
-[wtf]:
+[[wtf]]:
 
-<div class="badguy">Indeed, indeed.</div>
+<div class="badguy">Technically not *in* hell... at least not right now. Moreso in your television, aren't I?</div>
 
-[...]
+[[...]]
 
-[hello]:
+[[hello]]:
 
-<div class="badguy">Cool as a cucumber.</div>
+<div class="badguy">Television, yes, and aren't *we* playing it cool as a cucumber?</div>
 
-[...]
+[[...]]
 
-[...]:
 
-<div class="badguy">Yes, fair enough. I have much to say to you.</div>
+[[...]]:
+
+<div class="badguy">We have much to discuss. Please, come closer.</div>
 
 The static wavers for a moment, and through the static you can just make out a human-like shape blending into the darkest greys and blacks.
 
@@ -93,15 +118,26 @@ You start to find this wavery voice pretty annoying, frankly.
 
 ...and also, mildly terrifying?
 
-[[You're right, I do. I'm going to leave.]](leaveLR):
+[[Move closer to the television.]](closerTV)
+
+[[You're right, I don't like this. I'm going to leave.]](leaveLR)
+
+[[closerTV]]:
+
+<div id="narrator">Interesting choice.</div>
+
+You start to walk towards the television; its pulsing glow is magnetic.
+
+You gently place your fingertips on the screen, [[and]](titlescreen)
 
 [[leaveLR]]:
 
 <div id="narrator">Yeahhh, that's not going to work, though.</div>
 
-When you try to leave, you make it a couple of steps towards the door[[,]](titlescreen)
+When you try to leave, you make it a couple of steps towards the [[door...]](titlescreen)
 
 [[titlescreen]]:
+	static.pause();
 	document.getElementById("pageheader").className="blammo";
 	document.body.className="blammobody";
 
@@ -110,30 +146,151 @@ When you try to leave, you make it a couple of steps towards the door[[,]](title
 <div style="font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;">A text "adventure" by @kristinalustig for Ludum Dare 43.</div>
 <br />
 
-<div class="blammonext">[[Begin]]</div>
+<div id="blammonext">[[Actually Begin]]</div>
 
-[[Begin]]:
+[[Actually Begin]]:
 	document.body.className="main-bg";
 	cheery = new Audio();
 	cheery.src = "audioCheery.mp3";
 	cheery.load();
 	cheery.play();
-
-@clear
+	cheery.loop = true;
 
 You wake up nice and snuggly in your bed. When you stand up, you feel well-rested, too!
 
 [That's... great?](thatsgreat)
 <br/><br/>
-["Gee, I really do love mornings!"](thatsgreat)
+[Gee, I really do love mornings!](thatsgreat)
 
 [thatsgreat]:
 
-You feel pretty good about life right now. Your brain catches on a bit of a strange memory... a moment, perhaps.
+You feel pretty good about life right now. 
+
+For a second, your mind catches on a bit of a strange memory... a moment, perhaps.
 
 And just as quickly, the thought flutters away. The winter sun streams through your bedroom window.
 
 What shall you do today?!
+
+[[I'll probably just go to work.]](work)
+<br />
+<br />
+[[I'll probably just go perform a quick ritualistic blood sacrifice.]](bs)
+
+[[work]]:
+
+What an idea!
+
+And will you be cycling or walking there?
+
+[[Cycling!]](headin)
+<br/><br/>
+[[Walking!]](headin)
+
+
+[[bs]]:
+
+Uh... hm. I'm going to pretend you didn't suggest that.
+
+[[I'll probably just go to work.]](work)
+
+[[headin]]:
+
+Excellent. You head on into work and get there on time.
+
+<div class="narrator">Go you!</div>
+
+[[Do some work.]]
+
+[[Do some work.]]:
+
+beep boop.
+
+beep beep boop.
+
+[Do some more work.](more1)
+
+[more1]:
+
+*printer noise*
+
+*printer noise*
+
+*stapler noise*
+
+[Do some more work.](more2)
+
+[more2]:
+
+Uh...
+
+*coffee maker noise*
+
+*low hum of office noise*
+
+<div class="narrator">God, this is boring.</div>
+
+[do some more work](more3)
+
+[more3]:
+
+Alright, it's time to head home.
+
+Looks like it's raining outside. Which would you rather do?
+
+[[Walk]]
+<br /><br />
+[[Take the bus]]
+
+[[Walk]]:
+
+Odd choice, but alright. 
+
+You bid farewell to your coworkers and head out.
+
+As you're walking down the street, you see a [[man]](firstsight) unlocking his front door.
+
+
+[[Take the bus]]:
+
+Makes sense.
+
+You bid farewell to your coworkers and head out.
+
+You get on the bus uneventfully, and get off at your stop.
+
+When you step off the bus, you see a [[man]](firstsight) unlocking his front door.
+
+[[firstsight]]:
+	cheery.pause();
+
+@clear	
+
+You're confused, at first. Then you start...
+
+[...to](f1)
+
+[f1]:
+
+[...feel](f2)
+
+[f2]:
+	document.body.className="fainting-bg";
+
+<div id="fainting-dizzy">...a bit dizzy.</div>
+<br /><br />
+
+<div id="fainting-next">[[Continue]]</div>
+
+[[Continue]]:
+
+Blah
+
+
+
+
+
+
 
 
 
