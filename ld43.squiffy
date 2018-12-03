@@ -4,24 +4,29 @@
 [[Beginning]]:
 	static = new Audio();
 	cheery = new Audio();
+	creepy = new Audio();
 	document.body.className="introClass";
+
+@clear
 
 <img src="images/coverIntro.png" id="introImage" />
 
 <div id="introText">Turn on sound, and [[begin.]]</div>
 
-[[DEV cut to end of intro]](leaveLR)
+<!--[[DEV cut to end of intro]](leaveLR)
 
-[[DEV cut to fainting]](firstsight)
+//[[DEV cut to fainting]](firstsight)
 
-[[DEV cut to closerlook]](closer look)
+//[[DEV cut to closerlook]](closer look)
+
+//[[DEV cut to leave the house]](Leave the house.)-->
 
 [[begin.]]:
-	creepy = new Audio();
 	creepy.src = "creepy.mp3";
 	creepy.load();
 	creepy.play();
 	creepy.loop = true;
+	set ("creepy",creepy);
 
 @clear
 
@@ -83,12 +88,12 @@ Okay, fine, you settle back in on your lumpy couch for some more *truly restful*
 
 [[TVintro]]:
 	creepy.pause();
-	static = new Audio();
 	static.src = "static.wav";
 	static.load();
 	static.play();
-	static.volume = .5;
-	static.loop = true;
+	static.volume = .1;
+	set ("static",static);
+
 @clear
 
 The TV buzzes loudly, and you look to see that static has filled the screen. 
@@ -148,7 +153,6 @@ When you try to leave, you make it a couple of steps towards the [[door...]](tit
 
 
 [[titlescreen]]:
-	static.pause();
 	document.getElementById("pageheader").className="blammo";
 	document.body.className="blammobody";
 
@@ -188,6 +192,8 @@ What shall you do today?!
 [[I'll probably just go perform a quick ritualistic blood sacrifice.]](bs)
 
 [[work]]:
+
+@clear
 
 <img src="images/coverOne.png" class="imageIntro" />
 
@@ -426,6 +432,7 @@ Suddenly, your memory flashes.
 {sequence:Your couch, cast in fuzzy grey.:A commanding, sinister voice.:A snowflake falling on the tip of your nose.:[[Blood running down a drain.]]}
 
 [[Blood running down a drain.]]:
+	document.body.className="";
 
 You know what you have to do.
 
@@ -449,7 +456,7 @@ You deflect and he blinks. His eyes flicker to the door.
 
 "I guess you're right? Uh... do you want some water?"
 
-<div id="narrator">um, hey there? What's the deal? why were you so rude to him just now?</div>
+<div class="narrator">um, hey there? What's the deal? why were you so rude to him just now?</div>
 <br/><br/>
 [["I can get it myself"]](gogetwater)
 
@@ -467,11 +474,11 @@ But you do.
 
 [[knife]]:
 <br/><br/>
-<div id="narrator">okay, very funny. you can put that down now.</div>
+<div class="narrator">okay, very funny. you can put that down now.</div>
 
 You put the glass in the sink.
 
-[["Hey, Jake? There's something wrong with the water"]](waterlie)
+[["Hey, Jake? There's something wrong with the water."]](waterlie)
 
 [[waterlie]]:
 
@@ -481,7 +488,7 @@ Jake hears you call and walks into the kitchen.
 
 [[Grab Jake.]]
 
-<div id="narrator">oh my goodness, what are you DOING? If you would just...</div>
+<div class="narrator">oh my goodness, what are you DOING? If you would just...</div>
 
 [[Grab Jake.]]:
 
@@ -498,11 +505,15 @@ You leave the kitchen and head back into the living room.
 As you pass the [[TV,]](TVoutro)
 
 [[TVoutro]]:
+	document.body.className="dim";
+	static.src = "static.wav";
+	static.load();
 	static.play();
+	static.volume = .1;
 
-@clear
 
-<div id="badguy">Well done.</div>
+@clear 
+<div class="badguy">Well done.</div>
 
 You shake your head, trying to clear out some of the fog.
 
@@ -510,23 +521,28 @@ You shake your head, trying to clear out some of the fog.
 
 [[brainfog]]:
 
-<div id="badguy">Don't worry, you. We have time. And for you, well.</div>
-<br/><br/>
-<div id="narrator">oh no...</div>
-<br/><br/>
+<div class="badguy">Don't worry. We have time. </div>
+
+<div class="badguy">And, well.</div>
+
+<div class="narrator">oh no...</div>
+
 [[...]](um)
 
 [[um]]:
 	static.pause();
+	creepy.src = "creepy.mp3";
+	creepy.load();
 	creepy.play();
+	creepy.loop = true;
 
 @clear
 
-<div id="badguy">You have many more sacrifices to make.</div>
+<div class="badguy">You have many more sacrifices to make.</div>
 
 The TV blinks off.
 
-<div id="narrator">what have you done?</div>
+<div class="narrator">...what have you done?</div>
 
 [[end]]
 
@@ -534,21 +550,26 @@ The TV blinks off.
 
 @clear
 	
-<div id="badguy">Watching</div>
+<div class="badguy" style="font-size:3em; text-align:center; width=100%;">
+<div>Watching</div></div>
 
-Words, code, music, and art
-
-by <a href="http://www.twitter.com/kristinalustig">@kristinalustig</a>.
+<br/><br/><br/><br/>
+Words, code, music, sfx, and art by <a href="http://www.twitter.com/kristinalustig">@kristinalustig</a>.
 
 Made with <a href="http://textadventures.co.uk">squiffy</a>.
 
-Made for <a href="http://ldjam.com>Ludum Dare 43</a>.
+Made for <a href="http://ldjam.com">Ludum Dare 43</a>.
 
 Thanks for playing.
 
-<div id="narrator">ugh, thanks for nothing</div>
+<div class="narrator">ugh, thanks for nothing</div>
 
-[[Play again?]](Beginning)
+[[Play again?]]
+
+[[Play again?]]:
+	creepy.pause();
+
+Weird. Well, [[go ahead...]](Beginning)
 
 
 

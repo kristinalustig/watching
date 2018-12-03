@@ -5,17 +5,11 @@
 
 /*IMAGES*/
 .imageIntro{
-    opacity:0;
-    width:1%;
+    opacity:1;
+    width:50%;
     height:auto;
-    animation-name: imageExit;
-    animation-duration: 5s;
-}
-
-@keyframes imageExit {
-    0% {opacity:1; width:100%;}
-    95% {opacity:1; width:100%;}
-    100% {opacity:0; width:1%; height:auto;}
+    margin-left:10%;
+    margin-right:10%;
 }
 
 /*ONE-OFF ANIMATIONS*/
@@ -52,7 +46,7 @@
     65% {opacity:0;}
     70% {color: #801515; opacity:.25;}
     72% {opacity:0;}
-    76% {color: #801515; opacity:.75%;}
+    76% {color: #801515; opacity:.75;}
     82% {opacity:0;}
     84% {color: #801515; opacity:1;}
     100% {opacity:0;}
@@ -77,7 +71,7 @@
     100% {background-color:white;}
 }
 #introImage{
-    width:100%;
+    width:50%;
     height:auto;
     opacity:1;
     animation-name: introScreen-img;
@@ -242,7 +236,7 @@ div.narrator
 {
     font-style:italic;
     color:#567714;
-    font-size:.7em;
+    font-size:.8em;
     max-width: 70%;
     margin-left:15%;
     text-align:center;
