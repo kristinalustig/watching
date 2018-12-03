@@ -1,7 +1,9 @@
-@title Come To Me 
+@title Watching 
+
 
 [[Beginning]]:
 	static = new Audio();
+	cheery = new Audio();
 	document.body.className="introClass";
 
 <img src="images/coverIntro.png" id="introImage" />
@@ -10,11 +12,16 @@
 
 [[DEV cut to end of intro]](leaveLR)
 
+[[DEV cut to fainting]](firstsight)
+
+[[DEV cut to closerlook]](closer look)
+
 [[begin.]]:
 	creepy = new Audio();
 	creepy.src = "creepy.mp3";
 	creepy.load();
 	creepy.play();
+	creepy.loop = true;
 
 @clear
 
@@ -27,10 +34,12 @@ It's a snowy November evening. You were watching TV after dinner (as per usual) 
 
 Again.
 
-{sequence:Zzz.:When's the last time you even made your bed?:You don't even have a pillow!:I'm not very impressed with you right now.:Hello? Is anybody in there?:[[Doesn't your back hurt?]](waking up)}
+{sequence:Zzz.:Oh, come now, when's the last time you even made your bed?:You don't even have a pillow!:To be honest, I'm not very impressed with you right now.:[[I mean, doesn't your back hurt?]](waking up)}
 
 [[waking up]]:
 	document.body.className = 'dim';
+
+Ahem...
 
 Right, well, your back is killing you when you wake up. You open your eyes again and when you glance at the clock, you see that it's around 3AM. 
 
@@ -75,10 +84,10 @@ Okay, fine, you settle back in on your lumpy couch for some more *truly restful*
 [[TVintro]]:
 	creepy.pause();
 	static = new Audio();
-	staticExists = 1;
 	static.src = "static.wav";
 	static.load();
 	static.play();
+	static.volume = .5;
 	static.loop = true;
 @clear
 
@@ -107,7 +116,6 @@ Through the static, a voice wavers...
 
 [[...]]
 
-
 [[...]]:
 
 <div class="badguy">We have much to discuss. Please, come closer.</div>
@@ -124,7 +132,7 @@ You start to find this wavery voice pretty annoying, frankly.
 
 [[closerTV]]:
 
-<div id="narrator">Interesting choice.</div>
+<div class="narrator">interesting choice.</div>
 
 You start to walk towards the television; its pulsing glow is magnetic.
 
@@ -132,9 +140,12 @@ You gently place your fingertips on the screen, [[and]](titlescreen)
 
 [[leaveLR]]:
 
-<div id="narrator">Yeahhh, that's not going to work, though.</div>
+<div class="narrator">yeahhh, that's not going to work, though</div>
 
 When you try to leave, you make it a couple of steps towards the [[door...]](titlescreen)
+
+
+
 
 [[titlescreen]]:
 	static.pause();
@@ -146,11 +157,10 @@ When you try to leave, you make it a couple of steps towards the [[door...]](tit
 <div style="font-size:.7em; opacity:0; font-style:italic; color: white; text-align:center; margin-top:-20px; animation-name:disappear; animation-duration:40s;">A text "adventure" by @kristinalustig for Ludum Dare 43.</div>
 <br />
 
-<div id="blammonext">[[Actually Begin]]</div>
+<div id="blammonext">[[Actually Begin.]]</div>
 
-[[Actually Begin]]:
+[[Actually Begin.]]:
 	document.body.className="main-bg";
-	cheery = new Audio();
 	cheery.src = "audioCheery.mp3";
 	cheery.load();
 	cheery.play();
@@ -164,7 +174,7 @@ You wake up nice and snuggly in your bed. When you stand up, you feel well-reste
 
 [thatsgreat]:
 
-You feel pretty good about life right now. 
+Yeah, you feel pretty good about life right now. 
 
 For a second, your mind catches on a bit of a strange memory... a moment, perhaps.
 
@@ -178,6 +188,8 @@ What shall you do today?!
 [[I'll probably just go perform a quick ritualistic blood sacrifice.]](bs)
 
 [[work]]:
+
+<img src="images/coverOne.png" class="imageIntro" />
 
 What an idea!
 
@@ -196,9 +208,9 @@ Uh... hm. I'm going to pretend you didn't suggest that.
 
 [[headin]]:
 
-Excellent. You head on into work and get there on time.
+Excellent choice. You head on into work and get there on time.
 
-<div class="narrator">Go you!</div>
+<div class="narrator">go you!</div>
 
 [[Do some work.]]
 
@@ -228,7 +240,7 @@ Uh...
 
 *low hum of office noise*
 
-<div class="narrator">God, this is boring.</div>
+<div class="narrator">god, this is boring</div>
 
 [do some more work](more3)
 
@@ -264,6 +276,8 @@ When you step off the bus, you see a [[man]](firstsight) unlocking his front doo
 [[firstsight]]:
 	cheery.pause();
 
+<img src="images/coverPartTwo.png" class="imageIntro" />
+
 @clear	
 
 You're confused, at first. Then you start...
@@ -282,9 +296,275 @@ You're confused, at first. Then you start...
 
 <div id="fainting-next">[[Continue]]</div>
 
+
+
+
 [[Continue]]:
 
-Blah
+<div style="color:white; line-height:1.5em;">
+
+You come to.<br/><br/>
+
+Your head feels like a rusty garbage can, and when you lift your hand up to touch, it feels hot and wet.
+<br/><br/>
+"Hey, careful, don't touch! I'm trying to clean it." You hear a man's voice.
+<br/><br/>
+"What happened? Do you faint like that a lot?" he asks. He sounds deeply concerned. </div>
+<br/><br/>
+[["Hey, thank you for helping me."]](niceroute)
+<br /><br />
+[["What are you doing? Am I in your house?"]](meanroute)
+<br /><br />
+[["What even happened? Where am I?"]](confusedroute)
+
+
+[[niceroute]]:
+	document.body.className="main-bg";
+
+@clear
+
+You thank him.
+
+You squint open your eyes and make out the figure of the man you remember seeing right before you passed out.
+
+"Don't even mention it! I saw you fall as I was coming into my house, so I brought you here to give you some ice and clean out that scrape."
+
+You get a bit of a [[closer look]] at him.
+
+
+[[meanroute]]:
+	document.body.className="main-bg";
+
+@clear
+
+You squint open your eyes and make out the figure of the man you remember seeing right before you passed out.
+
+You sit up, worried, and start questioning him. He looks taken aback.
+
+"I mean, I saw you fall... I was just trying to help! Yes, you're in my house!"
+
+You get a bit of a [[closer look]] at him.
+
+
+[[confusedroute]]:
+	document.body.className="main-bg";
+
+@clear
+
+You're confused.
+
+You squint open your eyes and make out the figure of the man you remember seeing right before you passed out.
+
+"Well, I saw you hit the ground pretty hard, so I came and brought you a few steps to my house to clean you up."
+
+You get a bit of a [[closer look]] at him.
+
+
+[[closer look]]:
+
+You sit up a bit and squint at him even more.
+
+At first glance, he seems pretty average. Balding, brown hair, wire-rimmed glasses. Wearing khakis and a tucked-in shirt with a electronics store logo on it.
+
+But there's something... somehow... not quite right about him. You're not sure, but then you *are*. Something's not right.
+
+[Look around the room.]
+<br /><br />
+[Ask for some water.]
+<br /><br />
+[Ask for his name.]
+
+[Look around the room.]:
+
+You start to take in your surroundings. You're in a pretty nondescript living room. Saggy couch, particle board coffee table, television with some video games stacked below.
+
+[Turn on the TV.]
+
+[Turn on the TV.]:
+
+You reach over for the remote.
+
+"Oh, ah, well. I suppose if you need to rest and recover for a bit?"
+
+You turn on the TV. It's showing some sort of Japanese cartoon.
+
+<div class="narrator">is now really the time?</div>
+
+[Ask for some water.]:
+
+You ask the man for some water.
+
+"Ah, of course! So sorry, give me a moment." He scurries off to the kitcken.
+
+He seems nervous.
+
+You feel uneasy.
+
+He comes back in a moment with a bottle of water. You unscrew the cap and take a sip.
+
+[Ask for his name.]:
+
+"Hey, what's..." Your voice is hoarse and it catches a bit in your throat.
+
+You try again. "What's your name?"
+
+He looks startled. "Jake. It's Jake, my name is Jake." 
+
+<div class="narrator">why in the world is he *so* nervous?</div>
+
+
+
+[[Hang on a second...]](memory)
+
+[[memory]]:
+	document.body.className="memoryflashes";
+
+@clear
+
+Suddenly, your memory flashes.
+
+{sequence:Your couch, cast in fuzzy grey.:A commanding, sinister voice.:A snowflake falling on the tip of your nose.:[[Blood running down a drain.]]}
+
+[[Blood running down a drain.]]:
+
+You know what you have to do.
+
+[[I do.]]
+
+[[I do.]]:
+
+@clear
+
+<img src="images/coverPart3.png" class="imageIntro" />
+
+You look over at Jake. He's starting to sweat a bit: you see small beads forming at his temples.
+
+"W... what's your name?"
+
+[["Does it matter?"]](doesitmatter)
+
+[[doesitmatter]]:
+
+You deflect and he blinks. His eyes flicker to the door.
+
+"I guess you're right? Uh... do you want some water?"
+
+<div id="narrator">um, hey there? What's the deal? why were you so rude to him just now?</div>
+<br/><br/>
+[["I can get it myself"]](gogetwater)
+
+[[gogetwater]]:
+
+You pick up the glass and start walking towards the kitchen.
+
+You feel a little bit like your limbs are motorized.
+
+Like you don't *really* want to go get yourself some water.
+
+But you do.
+<br/><br/>
+[[Grab knife from knife block]](knife)
+
+[[knife]]:
+<br/><br/>
+<div id="narrator">okay, very funny. you can put that down now.</div>
+
+You put the glass in the sink.
+
+[["Hey, Jake? There's something wrong with the water"]](waterlie)
+
+[[waterlie]]:
+
+Jake hears you call and walks into the kitchen.
+
+"Oh, the faucet is a bit touchy, if you just"
+
+[[Grab Jake.]]
+
+<div id="narrator">oh my goodness, what are you DOING? If you would just...</div>
+
+[[Grab Jake.]]:
+
+You grab Jake as he walks in.
+
+With a smooth motion, before he can react, you plunge the knife into his stomach.
+
+[[Leave the house.]]
+
+[[Leave the house.]]:
+
+You leave the kitchen and head back into the living room.
+
+As you pass the [[TV,]](TVoutro)
+
+[[TVoutro]]:
+	static.play();
+
+@clear
+
+<div id="badguy">Well done.</div>
+
+You shake your head, trying to clear out some of the fog.
+
+[["What are you talking about?"]](brainfog)
+
+[[brainfog]]:
+
+<div id="badguy">Don't worry, you. We have time. And for you, well.</div>
+<br/><br/>
+<div id="narrator">oh no...</div>
+<br/><br/>
+[[...]](um)
+
+[[um]]:
+	static.pause();
+	creepy.play();
+
+@clear
+
+<div id="badguy">You have many more sacrifices to make.</div>
+
+The TV blinks off.
+
+<div id="narrator">what have you done?</div>
+
+[[end]]
+
+[[end]]:
+
+@clear
+	
+<div id="badguy">Watching</div>
+
+Words, code, music, and art
+
+by <a href="http://www.twitter.com/kristinalustig">@kristinalustig</a>.
+
+Made with <a href="http://textadventures.co.uk">squiffy</a>.
+
+Made for <a href="http://ldjam.com>Ludum Dare 43</a>.
+
+Thanks for playing.
+
+<div id="narrator">ugh, thanks for nothing</div>
+
+[[Play again?]](Beginning)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,6 +3,21 @@
     --main-bg-color: #D5E8F7;
 }
 
+/*IMAGES*/
+.imageIntro{
+    opacity:0;
+    width:1%;
+    height:auto;
+    animation-name: imageExit;
+    animation-duration: 5s;
+}
+
+@keyframes imageExit {
+    0% {opacity:1; width:100%;}
+    95% {opacity:1; width:100%;}
+    100% {opacity:0; width:1%; height:auto;}
+}
+
 /*ONE-OFF ANIMATIONS*/
 @keyframes dimming {
     0% {background: rgba(0,0,0,0);}
@@ -15,7 +30,8 @@
     animation-duration:15s; 
     animation-iteration-count:infinite; 
     position:fixed;
-    opacity: 0;
+    opacity:0;
+    top:100%;
 }
 
 @keyframes floating {
@@ -180,8 +196,24 @@
 }
 
 
-
-
+/*memoryflashes*/
+.memoryflashes {
+    background-color:#444980;
+    animation-name:mem-flash;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+}
+@keyframes mem-flash {
+    0% {background-color:#444980;}
+    20% {background-color:black;}
+    22% {background-color:#444980;}
+    40% {background-color:black;}
+    42% {background-color:#444980;}
+    80% {background-color:black; opacity:80%;}
+    82% {background-color:black;}
+    84% {background-color:#444980;}
+    98% {background-color:black;}
+}
 
 
 
@@ -189,6 +221,9 @@ div#pageheader{
     opacity:0;
 }
 #restart{
+    color: #144265 !important;
+}
+#about{
     color: #144265 !important;
 }
 h1
@@ -253,8 +288,13 @@ div#squiffy-container
 }
 div#squiffy-header
 {
-    font-size: 1em;
+    font-size: .7em;
     text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Anonymous Pro", "Courier New", Courier, monospace;
+    margin-bottom: 24px;
+    color: #144265 !important;
 }
 div#squiffy
 {
