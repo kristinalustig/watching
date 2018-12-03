@@ -30,10 +30,10 @@
 
 @clear
 
-<img src="images/snow.png" class="floatingsnow" style="width:10%; animation-delay: 1s;"/>
-<img src="images/snow.png" class="floatingsnow" style="width:10%; animation-delay: 5s;"/>
-<img src="images/snow.png" class="floatingsnow" style="width:15%; animation-delay: 8s;"/>
-<img src="images/snow.png" class="floatingsnow" style="width:12%; animation-delay: 12s;"/>
+<img src="images/Snow.png" class="floatingsnow" style="width:10%; animation-delay: 1s;"/>
+<img src="images/Snow.png" class="floatingsnow" style="width:10%; animation-delay: 5s;"/>
+<img src="images/Snow.png" class="floatingsnow" style="width:15%; animation-delay: 8s;"/>
+<img src="images/Snow.png" class="floatingsnow" style="width:12%; animation-delay: 12s;"/>
 
 It's a snowy November evening. You were watching TV after dinner (as per usual) and you fell asleep on the couch. 
 
