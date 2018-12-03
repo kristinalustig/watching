@@ -139,7 +139,7 @@
     animation-duration:10s;
     font-size:1em;
     margin-top: 0%;
-    opacity:1 !important;
+    opacity:0 !important;
     color: black;
 }
 #blammonext {
