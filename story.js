@@ -876,7 +876,7 @@ squiffy.story.sections = {
 		},
 	},
 	'doesitmatter': {
-		'text': "<p>You deflect and he blinks. His eyes flicker to the door.</p>\n<p>&quot;I guess you&#39;re right? Uh... do you want some water?&quot;</p>\n<p><div class=\"narrator\">um, hey there? What&#39;s the deal? why were you so rude to him just now?</div>\n<br/><br/>\n<a class=\"squiffy-link link-section\" data-section=\"gogetwater\" role=\"link\" tabindex=\"0\">&quot;I can get it myself&quot;</a></p>",
+		'text': "<p>You deflect and he blinks. His eyes flicker to the door.</p>\n<p>&quot;I guess you&#39;re right? Uh... do you want some water?&quot;</p>\n<p><div class=\"narrator\">um, hey there? What&#39;s the deal? why were you so rude to him just now?</div>\n<br/><br/>\n<a class=\"squiffy-link link-section\" data-section=\"gogetwater\" role=\"link\" tabindex=\"0\">&quot;I can get it myself.&quot;</a></p>",
 		'passages': {
 		},
 	},

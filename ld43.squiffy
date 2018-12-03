@@ -458,7 +458,7 @@ You deflect and he blinks. His eyes flicker to the door.
 
 <div class="narrator">um, hey there? What's the deal? why were you so rude to him just now?</div>
 <br/><br/>
-[["I can get it myself"]](gogetwater)
+[["I can get it myself."]](gogetwater)
 
 [[gogetwater]]:
 
