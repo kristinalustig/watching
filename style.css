@@ -15,7 +15,7 @@
 /*ONE-OFF ANIMATIONS*/
 @keyframes dimming {
     0% {background: rgba(0,0,0,0);}
-    100% {background: rgba(21, 43, 85, .3);}
+    100% {background: #a9c2cc;}
 }
 
 .floatingsnow {
@@ -53,8 +53,8 @@
 }
 .dim {
     animation-name: dimming;
-    animation-duration:20s;
-    background: rgba(21,43,85,.3);
+    animation-duration:5s;
+    background: #a9c2cc;
 }
 
 
